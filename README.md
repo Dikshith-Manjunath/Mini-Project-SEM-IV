@@ -1,1 +1,1 @@
-Website to take the data of extra food from people and distribute to stray dogs around the areas 
+Website to do some job and we are still deciding on it
