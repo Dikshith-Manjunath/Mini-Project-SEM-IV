@@ -23,7 +23,7 @@ const isActive = (path: string): boolean => {
             <div className="hidden md:ml-6 md:flex md:space-x-8">
               <Link 
                 href="/" 
-                className={`px-3 py-2 rounded-md text-sm font-medium ${isActive('/') ? 'text-white border-b-2 bg-gray-500' : 'text-gray-300 hover:text-white hover:border-b-2 hover:bg-indigo-500'}`}
+                className={`px-3 py-2 rounded-md text-sm font-medium ${isActive('/') ? 'text-white border-b-2 border-indigo-500' : 'text-gray-300 hover:text-white hover:border-b-2 hover:border-indigo-500'}`}
               >
                 Home
               </Link>
