@@ -1,11 +1,12 @@
 "use client";
-import Navbar from "./Navbar";
+import Navbar from "../components/Navbar";
 
 export default function Home() {
   return (
     <>
+    <div className="h-screen w-100% m-0 p-0">
     <Navbar/>
-    <h1 className="text-[2em]">Dumbass... U need to get a life first</h1>
+    </div>
     </>
   );
 }

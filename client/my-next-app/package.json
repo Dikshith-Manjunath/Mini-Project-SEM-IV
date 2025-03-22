@@ -10,6 +10,10 @@
   },
   "dependencies": {
     "@prisma/client": "^6.4.1",
+    "@react-three/drei": "^10.0.4",
+    "@react-three/fiber": "^9.1.0",
+    "@types/three": "^0.174.0",
+    "axios": "^1.8.4",
     "dotenv": "^16.4.7",
     "next": "^15.1.6",
     "openai": "^4.85.4",
@@ -17,7 +21,8 @@
     "prisma": "^6.4.1",
     "puppeteer": "^24.2.1",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "three": "^0.174.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
