@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Mini Project SEM IV",
   description: "Made by team Fools",
+  icons: {
+    icon: "/favicon/favicon.ico",
+  },
 };
 
 export default function RootLayout({

@@ -1,4 +1,3 @@
-// File: pages/api/generate-itinerary.ts
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 type ItineraryRequest = {
@@ -136,7 +135,7 @@ Return the response in JSON format with the following structure:
 // Function to call Ollama API
 async function generateItineraryWithOllama(prompt: string) {
   try {
-    const response = await fetch('http://localhost:11434/api/generate', {
+    const response = await fetch('http://localhost:11434/api/generate?Content-Type=application/json', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

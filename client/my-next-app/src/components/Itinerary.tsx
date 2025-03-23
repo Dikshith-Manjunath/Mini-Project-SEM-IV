@@ -1,17 +1,6 @@
 // File: components/ItineraryForm.tsx
 import React, { useState } from 'react';
-import type { Itinerary } from '../../pages/api/Types';
-
-// interface Itinerary {
-//   days: {
-//     date: string;
-//     activities: {
-//       time: string;
-//       description: string;
-//       location?: string;
-//     }[];
-//   }[];
-// }
+import type { Itinerary } from '../../pages/types/ItineraryType';
 
 type ItineraryFormProps = {
   onItineraryGenerated: (itinerary: Itinerary) => void;

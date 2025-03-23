@@ -4,7 +4,7 @@ import { useState } from "react";
 import Head from "next/head";
 import ItineraryForm from "../components/Itinerary";
 import ItineraryDisplay from "../components/ItineraryDisplay";
-import { Itinerary } from "../../pages/api/Types";
+import { Itinerary } from "../../pages/types/ItineraryType";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(false);

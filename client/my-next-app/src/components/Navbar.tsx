@@ -18,7 +18,7 @@ const isActive = (path: string): boolean => {
         <div className="flex justify-between h-16">
           <div className="w-[650px] flex items-center justify-between">
             <div className="flex-shrink-0">
-              <Link href="/" className="text-white font-bold text-xl">Sexy Travels</Link>
+              <Link href="/" className="text-white font-bold text-xl">Crazy Travels</Link>
             </div>
             <div className="hidden md:ml-6 md:flex md:space-x-8">
               <Link 
