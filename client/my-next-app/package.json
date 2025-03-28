@@ -9,6 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fortawesome/free-regular-svg-icons": "^6.7.2",
+    "@fortawesome/free-solid-svg-icons": "^6.7.2",
+    "@fortawesome/react-fontawesome": "^0.2.2",
     "@prisma/client": "^6.4.1",
     "@react-three/drei": "^10.0.4",
     "@react-three/fiber": "^9.1.0",
@@ -22,17 +25,19 @@
     "puppeteer": "^24.2.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-simple-typewriter": "^5.0.1",
+    "react-typed": "^2.0.12",
     "three": "^0.174.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
-    "@types/node": "^20",
-    "@types/react": "^19",
+    "@types/node": "20.17.27",
+    "@types/react": "19.0.12",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.1.6",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5"
+    "typescript": "5.8.2"
   }
 }

@@ -8,128 +8,97 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
   
-const isActive = (path: string): boolean => {
-    return pathname === path;
-};
+  const isActive = (path: string): boolean => pathname === path;
 
   return (
-    <nav className="bg-black shadow-lg">
-      <div className="max-w-1vw px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
-          <div className="w-[650px] flex items-center justify-between">
-            <div className="flex-shrink-0">
-              <Link href="/" className="text-white font-bold text-xl">Crazy Travels</Link>
-            </div>
-            <div className="hidden md:ml-6 md:flex md:space-x-8">
-              <Link 
-                href="/" 
-                className={`px-3 py-2 rounded-md text-sm font-medium ${isActive('/') ? 'text-white border-b-2 border-indigo-500' : 'text-gray-300 hover:text-white hover:border-b-2 hover:border-indigo-500'}`}
-              >
-                Home
-              </Link>
-              <Link 
-                href="/products"
-                className={`px-3 py-2 rounded-md text-sm font-medium ${isActive('/products') ? 'text-white border-b-2 border-indigo-500' : 'text-gray-300 hover:text-white hover:border-b-2 hover:border-indigo-500'}`}
-              >
-                Products
-              </Link>
-              <Link 
-                href="/services"
-                className={`px-3 py-2 rounded-md text-sm font-medium ${isActive('/services') ? 'text-white border-b-2 border-indigo-500' : 'text-gray-300 hover:text-white hover:border-b-2 hover:border-indigo-500'}`}
-              >
-                Services
-              </Link>
-              <Link 
-                href="/about"
-                className={`px-3 py-2 rounded-md text-sm font-medium ${isActive('/about') ? 'text-white border-b-2 border-indigo-500' : 'text-gray-300 hover:text-white hover:border-b-2 hover:border-indigo-500'}`}
-              >
-                About
-              </Link>
-              <Link 
-                href="/contact"
-                className={`px-3 py-2 rounded-md text-sm font-medium ${isActive('/contact') ? 'text-white border-b-2 border-indigo-500' : 'text-gray-300 hover:text-white hover:border-b-2 hover:border-indigo-500'}`}
-              >
-                Contact
-              </Link>
-            </div>
+    <nav className="fixed top-0 left-0 w-full bg-[#121212] shadow-md z-50">
+      <div className="max-w-7xl mx-auto px-4 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          
+          {/* Logo & Journey AI */}
+          <div className="flex items-center space-x-2">
+            <img src='/logo.jpg' alt="Journey AI Logo" className="h-8" />
+            <Link href="/" className="text-white font-bold text-xl">
+              Journey AI
+            </Link>
           </div>
-          <div className="flex items-center">
-            <div className="hidden md:flex md:items-center md:ml-6">
-              <Link href="/signin" className="bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                Sign In
-              </Link>
-            </div>
-            <div className="flex md:hidden">
-              <button
-                onClick={() => setIsOpen(!isOpen)}
-                className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
-                aria-expanded="false"
+
+          {/* Desktop Menu - Centered */}
+          <div className="hidden md:flex flex-1 justify-center space-x-8">
+            {["/", "/blogs", "/about"].map((path, index) => (
+              <Link 
+                key={index}
+                href={path}
+                className={`relative px-3 py-2 text-sm font-medium transition-all duration-300 ${
+                  isActive(path) 
+                    ? "text-white border-b-2 border-cyan-500" 
+                    : "text-gray-300 hover:text-white hover:border-b-2 hover:border-cyan-500"
+                }`}
               >
-                <span className="sr-only">Open main menu</span>
-                {!isOpen ? (
-                  <svg className="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
-                  </svg>
-                ) : (
-                  <svg className="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                )}
-              </button>
-            </div>
+                {path === "/" ? "Home" : path.replace("/", "").replace("-", " ")}
+              </Link>
+            ))}
+          </div>
+
+          {/* Sign In Button - Right */}
+          <div className="hidden md:flex">
+            <Link 
+              href="/signin" 
+              className="bg-cyan-500 text-black px-4 py-2 rounded-md text-sm font-medium hover:bg-cyan-600 transition-all duration-300"
+            >
+              Sign In
+            </Link>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <div className="md:hidden flex items-center">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-gray-300 hover:text-white focus:outline-none"
+            >
+              {!isOpen ? (
+                <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              ) : (
+                <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              )}
+            </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <Link 
-              href="/" 
-              className={`block px-3 py-2 rounded-md text-base font-medium ${isActive('/') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}`}
-              onClick={() => setIsOpen(false)}
-            >
-              Home
-            </Link>
-            <Link 
-              href="/products" 
-              className={`block px-3 py-2 rounded-md text-base font-medium ${isActive('/products') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}`}
-              onClick={() => setIsOpen(false)}
-            >
-              Products
-            </Link>
-            <Link 
-              href="/services" 
-              className={`block px-3 py-2 rounded-md text-base font-medium ${isActive('/services') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}`}
-              onClick={() => setIsOpen(false)}
-            >
-              Services
-            </Link>
-            <Link 
-              href="/about" 
-              className={`block px-3 py-2 rounded-md text-base font-medium ${isActive('/about') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}`}
-              onClick={() => setIsOpen(false)}
-            >
-              About
-            </Link>
-            <Link 
-              href="/contact" 
-              className={`block px-3 py-2 rounded-md text-base font-medium ${isActive('/contact') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}`}
-              onClick={() => setIsOpen(false)}
-            >
-              Contact
-            </Link>
-          </div>
-          <div className="pt-4 pb-3 border-t border-gray-700">
-            <div className="flex items-center px-5">
-              <Link href="/signin" className="w-full bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-700" onClick={() => setIsOpen(false)}>
-                Sign In
+        <div className="md:hidden bg-[#121212]">
+          <div className="px-6 py-3 space-y-2">
+            {["/", "/blogs", "/about"].map((path, index) => (
+              <Link 
+                key={index}
+                href={path}
+                className={`block px-3 py-2 rounded-md text-base font-medium ${
+                  isActive(path) ? "bg-gray-900 text-white" : "text-gray-300 hover:bg-gray-700 hover:text-white"
+                }`}
+                onClick={() => setIsOpen(false)}
+              >
+                {path === "/" ? "Home" : path.replace("/", "").replace("-", " ")}
               </Link>
-            </div>
+            ))}
+          </div>
+          <div className="px-6 py-3 border-t border-gray-700">
+            <Link 
+              href="/signin" 
+              className="block w-full text-center bg-cyan-500 text-black px-4 py-2 rounded-md text-sm font-medium hover:bg-cyan-600 transition-all duration-300"
+              onClick={() => setIsOpen(false)}
+            >
+              Sign In
+            </Link>
           </div>
         </div>
       )}
     </nav>
   );
 }
+

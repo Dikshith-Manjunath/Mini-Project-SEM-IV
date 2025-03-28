@@ -35,7 +35,7 @@ type ItineraryDisplayProps = {
 
 const ItineraryDisplay: React.FC<ItineraryDisplayProps> = ({ itinerary }) => {
   return (
-    <div className="bg-white shadow-lg rounded-lg overflow-hidden max-w-4xl mx-auto my-8">
+    <div className="bg-black text-white shadow-lg rounded-lg overflow-hidden max-w-4xl mx-auto my-8">
       <div className="bg-indigo-600 p-6 text-white">
         <h1 className="text-3xl font-bold">{itinerary.destination}</h1>
         <div className="flex justify-between mt-2">
